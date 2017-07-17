@@ -18,8 +18,8 @@ class PostList extends Component {
 
     return (
       <div>
-        {postsToRender.map(post => (
-          <Post key={post.id} post={post}/>
+        {postsToRender.map((post, index) => (
+          <Post key={post.id} post={post} index={index}/>
         ))}
       </div>
     )
@@ -32,6 +32,11 @@ const ALL_POSTS_QUERY = gql`
       id
       url
       title
+      votes
+      published_at
+      author{
+        name
+      }
     }
   }
 `
